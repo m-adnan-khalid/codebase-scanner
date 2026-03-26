@@ -11,7 +11,7 @@ YELLOW='\033[1;33m'
 BOLD='\033[1m'
 NC='\033[0m'
 
-REPO="adnan-prompts/claude-code-scanner"
+REPO="m-adnan-khalid/codebase-scanner"
 BRANCH="main"
 
 echo -e "\n${BOLD}${CYAN}Claude Code Scanner — Installing...${NC}\n"

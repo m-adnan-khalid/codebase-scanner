@@ -2,6 +2,36 @@
 
 > Scan any codebase and generate a complete Claude Code environment — 12 role-based agents, 13 skills, 12 hooks, rules, templates, full SDLC workflow with execution analytics.
 
+## Prerequisites
+
+This tool requires **Node.js >= 18**. `npx` is included with Node.js/npm.
+
+### Check if Node.js is installed:
+```bash
+node --version  # Should be >= 18.x.x
+npm --version   # Should be >= 8.x.x
+```
+
+### Install Node.js if needed:
+
+**macOS (using Homebrew):**
+```bash
+brew install node
+```
+
+**Ubuntu/Debian:**
+```bash
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+**Windows (using Chocolatey):**
+```bash
+choco install nodejs
+```
+
+**Or download from [nodejs.org](https://nodejs.org/)**
+
 ## Installation
 
 ### Method 1: npx (Recommended)

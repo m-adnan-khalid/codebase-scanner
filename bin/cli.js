@@ -3,6 +3,42 @@
 const fs = require('fs');
 const path = require('path');
 
+// Check prerequisites
+function checkPrerequisites() {
+  const { execSync } = require('child_process');
+
+  try {
+    // Check Node.js version
+    const nodeVersion = execSync('node --version', { encoding: 'utf-8' }).trim();
+    const nodeMajor = parseInt(nodeVersion.replace('v', '').split('.')[0]);
+    if (nodeMajor < 18) {
+      error(`Node.js ${nodeVersion} detected. This tool requires Node.js >= 18.`);
+      error('Please upgrade Node.js: https://nodejs.org/');
+      process.exit(1);
+    }
+  } catch (e) {
+    error('Node.js not found. Please install Node.js >= 18: https://nodejs.org/');
+    process.exit(1);
+  }
+
+  try {
+    // Check npm version (which includes npx)
+    const npmVersion = execSync('npm --version', { encoding: 'utf-8' }).trim();
+    const npmMajor = parseInt(npmVersion.split('.')[0]);
+    if (npmMajor < 8) {
+      error(`npm ${npmVersion} detected. This tool requires npm >= 8.`);
+      error('Please upgrade npm: npm install -g npm');
+      process.exit(1);
+    }
+  } catch (e) {
+    error('npm not found. Please install npm (comes with Node.js): https://nodejs.org/');
+    process.exit(1);
+  }
+}
+
+// Run prerequisite check
+checkPrerequisites();
+
 const COMMANDS = {
   init: 'Initialize Claude Code environment in current directory',
   status: 'Check if Claude Code environment is set up',
